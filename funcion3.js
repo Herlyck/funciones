@@ -1,5 +1,5 @@
 const leer = require("prompt-sync")();
-function main(params) {
+function main() {
 
     let segundos = -1;
 
@@ -14,17 +14,21 @@ main(); //funcion main (activa subalgoritmos)
 
 
                                 //le modificas a segundos con F2 por segundosInicial
+/**
+ * Inicia cuenta regresiva desde el segundo recibido
+ * @param {Number} segundosInicial a usar para la cuenta regresiva (inclusive)
+ */
 function cuentaRegresivaDesde(segundosInicial) {
 
     console.log("iniciando cuenta regresiva...");
     console.log(segundosInicial); //mostrar antes de que comience el intervalo
-    
+
     const idInterval = setInterval(() => {
         //codigo
         segundosInicial--;
         console.log(segundosInicial); 
 
-        if (segundosInicial === 0) {
+        if (segundosInicial <= 0) {
             clearInterval(idInterval); // la forma en que termina el intervalo, necesita el argumento del intervalo a detener
         }
 
