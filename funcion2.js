@@ -1,11 +1,10 @@
 const leer = require ("prompt-sync")();
-function main() {
-    let nombre="def";
 
-    console.log("ingrese un nombre:")
-    nombre=leer();
+function main() {
     
-    nombreSaludar(nombre);
+    nombreSaludar("Sara");
+    nombreSaludar("Berta");
+    nombreSaludar("Juan");
 }
 main();
 

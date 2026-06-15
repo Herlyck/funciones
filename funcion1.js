@@ -6,6 +6,14 @@ function main() {
 }
 main();
 
+
+//ctrl+espacio arriba de la funcion para hacer esta documentacion
+/**
+ * documentacion de saludo 
+ */
+
+
 function saludar(saludo) {
      console.log(saludo);
 }
+
