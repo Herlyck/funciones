@@ -13,6 +13,8 @@ function main() {
 main(); //funcion main (activa subalgoritmos)
 
 
+
+
                                 //le modificas a segundos con F2 por segundosInicial
 /**
  * Inicia cuenta regresiva desde el segundo recibido
