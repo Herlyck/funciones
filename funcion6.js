@@ -1,37 +1,34 @@
 const leer = require("prompt-sync")();
-const REINTEGRO_1 = 0.25;
-const REINTEGRO_2 = 0.15;
-const TOPE_1 = 10000;
-const TOPE_2 = 3000;
+const PORCENTAJE_A = 0.25;
+const PORCENTAJE_B = 0.15;
+const TOPE_A = 10000;
+const TOPE_B = 3000;
 
 function main() {
 
-    let precio = 0;
+    let precio = 25125;
 
-    resultado = calcularReintegro(precio, REINTEGRO_1, TOPE_1);
-    console.log(resultado);
-
-
-
-
-
+    calcularReintegro(precio,PORCENTAJE_B,TOPE_B);
+    
+    console.log("valor de compra:" + precio + "$");
+    console.log("reintegro de:" + reintegro + "$");
 }
 
 
 main();
 
-
-function calcularReintegro(precio, porcentaje, tope) {
-
-
-    console.log("ingrese precio");
-    precio = Number(leer());
-
-    if ((precio * porcentaje) > TOPE_1) {
-        console.log("no se puede hacer este reintegro");
-
-    } else {
-        return precio + (precio * porcentaje)
+/**
+ * modulo de Reintegro
+ * @param {number} precio a aplicar el reintegro
+ * @param {number} porcentaje del reintegro
+ * @param {number} tope del reintegro
+ * @returns el reintegro calculado sin superar el tope
+ */
+function calcularReintegro(precio,porcentaje,tope) {
+    reintegro = precio * porcentaje;
+    if (reintegro > tope) {
+        reintegro = tope;
     }
-
+    return reintegro;
 }
+
