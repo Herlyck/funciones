@@ -5,10 +5,11 @@ const TOPE_A = 10000;
 const TOPE_B = 3000;
 
 function main() {
-
+    let reintegro=0;
     let precio = 25125;
+   
 
-    calcularReintegro(precio,PORCENTAJE_B,TOPE_B);
+    reintegro=calcularReintegro(precio,PORCENTAJE_B,TOPE_B);
     
     console.log("valor de compra:" + precio + "$");
     console.log("reintegro de:" + reintegro + "$");
@@ -25,6 +26,7 @@ main();
  * @returns el reintegro calculado sin superar el tope
  */
 function calcularReintegro(precio,porcentaje,tope) {
+    let reintegro=0;
     reintegro = precio * porcentaje;
     if (reintegro > tope) {
         reintegro = tope;
