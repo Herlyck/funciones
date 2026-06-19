@@ -1,5 +1,6 @@
 const leer = require("prompt-sync")();
 const DOLAR = 1450;
+const EURO=1660;
 
 function main() {
     // let cantPesos = 0;
@@ -9,7 +10,7 @@ function main() {
     // dolares = convertirADolar(cantPesos);
     // mostrarInformeConversion(dolares);
     mostrarInformeConversion(convertirADolar(cantidadPesos())); //de fin a principio va esta linea 
-
+   
 }
 main();
 
@@ -49,3 +50,4 @@ function convertirADolar(cantPesos) {
 descarto las variables porque no las estaba utilizando para otra cosa, ya que aca no necesitamos guardar el valor de dolar
 si tuvieramos que guardar va con variables.
 */ 
+
