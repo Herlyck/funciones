@@ -3,8 +3,6 @@ function main() {
     let numPersonaje=0;
     let impostor=0;
     
-
-   
     listadoNombres();
     numPersonaje=Number(leer());
     impostor = valorImpostor();
