@@ -2,24 +2,12 @@ const leer = require("prompt-sync")();
 function main() {
     let numPersonaje=0;
     let impostor=0;
-    console.log("Selecciona un numero de personaje para encontrar al impostar:");
+    
 
-    personaje = ["Harry Potter",
-        "Hermione Granger",
-        "Ron Weasley",
-        "Albus Dumbledore",
-        "Severus Snape",
-        "Lord Voldemort",
-        "Draco Malfoy",
-        "Sirius Black",
-        "Rubeus Hagrid",
-        "Luna Lovegood"
-    ]
+   
     listadoNombres();
-
     numPersonaje=Number(leer());
     impostor = valorImpostor();
-    
     Decision(numPersonaje, impostor);
 }
 main();
@@ -44,6 +32,18 @@ function valorImpostor(impostor) {
 }
 
 function listadoNombres() {
+     console.log("Selecciona un numero de personaje para encontrar al impostor:");
+     personaje = ["Harry Potter",
+        "Hermione Granger",
+        "Ron Weasley",
+        "Albus Dumbledore",
+        "Severus Snape",
+        "Lord Voldemort",
+        "Draco Malfoy",
+        "Sirius Black",
+        "Rubeus Hagrid",
+        "Luna Lovegood"
+    ]
     for (let i = 0; i < personaje.length; i++) {
         console.log((i + 1) + "-" + personaje[i]);
 
