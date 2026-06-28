@@ -37,20 +37,28 @@ function main() {
         console.log("ingresa mensaje secreto para finalizar o cualquiera para continuar");
 
         msjIngresado = leer();
-        tablero[personaje1.posY][personaje1.posX] = SIMB_CASILLA_VACIA;
-        personaje1.posY += generarMovimientoEntre(-1, 1);
-        personaje1.posX += generarMovimientoEntre(-1, 1);
-        regularMovimientoA(personaje1);
 
-        tablero[personaje2.posY][personaje2.posX] = SIMB_CASILLA_VACIA;
-        personaje2.posY += generarMovimientoEntre(-1, 1);
-        personaje2.posX += generarMovimientoEntre(-1, 1);
-        regularMovimientoA(personaje2);
+        actualizarCasillaA(personaje1);
+        actualizarCasillaA(personaje2);
+        
 
     }
 
 }
 main();
+
+
+
+/**
+ * actualiza la casilla del personaje
+ * @param {object} unPersonaje a actualizar casilla
+ */
+function actualizarCasillaA(unPersonaje) {
+    tablero[unPersonaje.posY][unPersonaje.posX] = SIMB_CASILLA_VACIA;
+    unPersonaje.posY += generarMovimientoEntre(-1, 1);
+    unPersonaje.posX += generarMovimientoEntre(-1, 1);
+    regularMovimientoA(unPersonaje);
+}
 
 /**
  * regular el movimiento del personaje en los limites del tablero
