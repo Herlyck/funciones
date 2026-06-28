@@ -6,7 +6,7 @@ const MAX_COL = 10;
 const MOVIMIENTO_CASILLAS = 1;
 const MSJ_INICIAL = "Yo juro solemnemente que mis intenciones son malas";
 const MSJ_FINAL = "Travesura realizada";
-const CASILLA_VACIA = ". ";
+const SIMB_CASILLA_VACIA = ". ";
 const tablero = [];
 
 const SIMB_PERSONAJE_1 = "H ";
@@ -26,7 +26,7 @@ function main() {
     let msjIngresado = "def msj ingresado";
 
     crearTablero();
-    while (msjIngresado != MSJ_FINAL) {
+    while (msjIngresado != "Q" && msjIngresado != MSJ_FINAL) {
         console.clear(); //al principio o final limpias consola
         tablero[personaje1.posY][personaje1.posX] = SIMB_PERSONAJE_1;
         tablero[personaje2.posY][personaje2.posX] = SIMB_PERSONAJE_2;
@@ -37,10 +37,55 @@ function main() {
         console.log("ingresa mensaje secreto para finalizar o cualquiera para continuar");
 
         msjIngresado = leer();
+        tablero[personaje1.posY][personaje1.posX] = SIMB_CASILLA_VACIA;
+        personaje1.posY += generarMovimientoEntre(-1, 1);
+        personaje1.posX += generarMovimientoEntre(-1, 1);
+        regularMovimientoA(personaje1);
+
+        tablero[personaje2.posY][personaje2.posX] = SIMB_CASILLA_VACIA;
+        personaje2.posY += generarMovimientoEntre(-1, 1);
+        personaje2.posX += generarMovimientoEntre(-1, 1);
+        regularMovimientoA(personaje2);
+
     }
 
 }
 main();
+
+/**
+ * regular el movimiento del personaje en los limites del tablero
+ * @param {object} unPersonaje a regular un movimiento
+ */
+function regularMovimientoA(unPersonaje) {
+    if (unPersonaje.posY < 0) {
+        unPersonaje.posY = 0;
+    } else if (unPersonaje.posY > MAX_FIL - 1) {
+        unPersonaje.posY = MAX_FIL - 1;
+    }
+
+    if (unPersonaje.posX < 0) {
+        unPersonaje.posX = 0;
+    } else if (unPersonaje.posX > MAX_COL - 1) {
+        unPersonaje.posX = MAX_COL - 1;
+    }
+}
+
+/**
+ * genera un movimiento aleatorio
+ * @param {Number} min del movimiento a generar
+ * @param {Number} max  del movimiento a generar
+ * @returns un movimiento aleatorio en el rango ingresado
+ */
+function generarMovimientoEntre(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+}
+
+
+
+
+
 /**
  * muestra el tablero en consola
  */
@@ -64,7 +109,7 @@ function crearTablero() {
     for (let fila = 0; fila < MAX_FIL; fila++) {
         tablero[fila] = []; //es lo que hace el .push([])
         for (let col = 0; col < MAX_COL; col++) {
-            tablero[fila][col] = CASILLA_VACIA;
+            tablero[fila][col] = SIMB_CASILLA_VACIA;
         }
         //creacion de tablero
     }
