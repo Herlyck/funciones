@@ -1,7 +1,7 @@
 const leer = require('prompt-sync')();
 
 const personajes = ["Harry Potter", "Newt Scamander"];
-const MAX_FIL = 7;
+const MAX_FILA = 7;
 const MAX_COL = 10;
 const MOVIMIENTO_CASILLAS = 1;
 const MSJ_INICIAL = "Yo juro solemnemente que mis intenciones son malas";
@@ -22,6 +22,10 @@ const personaje2 = {
     posX: 1
 }
 
+
+/**
+ * inicia el programa
+ */
 function main() {
     let msjIngresado = "def msj ingresado";
 
@@ -65,18 +69,19 @@ function actualizarCasillaA(unPersonaje) {
  * @param {object} unPersonaje a regular un movimiento
  */
 function regularMovimientoA(unPersonaje) {
-    if (unPersonaje.posY < 0) {
-        unPersonaje.posY = 0;
-    } else if (unPersonaje.posY > MAX_FIL - 1) {
-        unPersonaje.posY = MAX_FIL - 1;
-    }
+    regularEjeA(unPersonaje,"posY",MAX_FILA);
+    regularEjeA(unPersonaje,"posX",MAX_COL);
+}
 
-    if (unPersonaje.posX < 0) {
-        unPersonaje.posX = 0;
-    } else if (unPersonaje.posX > MAX_COL - 1) {
-        unPersonaje.posX = MAX_COL - 1;
+function regularEjeA(unPersonaje, eje, maxEje) {
+    if (unPersonaje[eje] < 0) {
+        unPersonaje[eje] = 0;
+    } else if (unPersonaje[eje] > maxEje - 1) {
+        unPersonaje[eje] = maxEje - 1;
     }
 }
+
+
 
 /**
  * genera un movimiento aleatorio
@@ -114,7 +119,7 @@ function mostrarTablero() {
  * crea tablero con las dimensiones correspondientes
  */
 function crearTablero() {
-    for (let fila = 0; fila < MAX_FIL; fila++) {
+    for (let fila = 0; fila < MAX_FILA; fila++) {
         tablero[fila] = []; //es lo que hace el .push([])
         for (let col = 0; col < MAX_COL; col++) {
             tablero[fila][col] = SIMB_CASILLA_VACIA;
