@@ -30,7 +30,7 @@ function main() {
     let msjIngresado = "def msj ingresado";
 
     crearTablero();
-    while (msjIngresado != "Q" && msjIngresado != MSJ_FINAL) {
+    while (msjIngresado != MSJ_FINAL) {
         console.clear(); //al principio o final limpias consola
         tablero[personaje1.posY][personaje1.posX] = SIMB_PERSONAJE_1;
         tablero[personaje2.posY][personaje2.posX] = SIMB_PERSONAJE_2;
